@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <Login></Login> <!--使用Login组件-->
+    <img src="./assets/todo.jpg" style="width:200px">
+    <Login></Login> 
   </div>
 </template>
 
 <script>
 import Login from './components/Login/Login'// 引入Login组件
+import TodoList from './components/Todo/TodoList'// 引入Login组件
 
 export default {
   name: 'app',
   components: {
-    Login
+    Login,
+    TodoList
   }
 }
 </script>

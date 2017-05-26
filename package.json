@@ -13,6 +13,7 @@
     "koa": "nodemon --inspect app.js"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "axios": "^0.16.1",
     "element-ui": "^1.3.4",
     "iview": "^2.0.0-rc.14",

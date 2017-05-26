@@ -2,12 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import iView from 'iview'; // 引入element-ui
-import 'iview/dist/styles/iview.css';//引入css
+import ElementUI from 'element-ui' // 引入element-ui
+import 'element-ui/lib/theme-default/index.css'   // 使用 CSS
+import 'animate.css/animate.min.css'
 
 Vue.config.productionTip = false
 
-Vue.use(iView);//全局使用
+Vue.use(ElementUI) // Vue全局使用
 
 /* eslint-disable no-new */
 new Vue({
