@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <hello></hello>
+    <Login></Login> <!--使用Login组件-->
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Login from './components/Login/Login'// 引入Login组件
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Login
   }
 }
 </script>
