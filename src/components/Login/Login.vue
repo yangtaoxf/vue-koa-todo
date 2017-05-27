@@ -18,7 +18,7 @@
           placeholder="密码"
           type="password">
         </el-input>
-        <el-button type="primary" class="button">登录</el-button>
+        <el-button type="primary" class="button"  @click="loginToDo">登录</el-button>
       </el-row>
     </el-col>
   </el-row>
@@ -34,7 +34,9 @@ export default {
     };
   },
   methods:{
-     
+    loginToDo () {
+        this.$router.push('/todolist')// 编程式路由，通过push方法，改变路由
+    }
   }
 };
 </script>

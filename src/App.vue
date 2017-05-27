@@ -1,20 +1,14 @@
 <template>
   <div id="app">
     <img src="./assets/todo.jpg" style="width:200px">
-    <TodoList></TodoList> 
+    <router-view></router-view> <!-- 原本的Login换成了router-view 这就是路由视图渲染的目标元素-->
   </div>
 </template>
 
 <script>
-import Login from './components/Login/Login'// 引入Login组件
-import TodoList from './components/Todo/TodoList'// 引入Login组件
 
 export default {
-  name: 'app',
-  components: {
-    Login,
-    TodoList
-  }
+  name: 'app'
 }
 </script>
 

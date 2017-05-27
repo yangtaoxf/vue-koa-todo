@@ -1,9 +1,7 @@
 <template>
   <el-row class="content">
     <el-col :xs="{span:20,offset:2}" :sm="{span:8,offset:8}">
-      <span>
-        欢迎：{{name}}！你的待办事项是：
-      </span>
+    <h1 class="animated jello title"> 欢迎：{{name}}！你的待办事项是：</h1>
       <el-input placeholder="请输入待办事项" v-model="todos" @keyup.enter.native="addTodos"></el-input>
       <el-tabs v-model="activeName">
         <el-tab-pane label="待办事项" name="first">
@@ -112,6 +110,10 @@ export default {
 </script>
 
 <style lang="scss" scope>
+    .title{
+         font-size: 20px;
+        color:#ee6666;
+    }
     .el-input{
         margin:20px auto;
     }
