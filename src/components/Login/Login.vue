@@ -8,7 +8,9 @@
           class="input"
           v-model="account" 
           placeholder="账号"
-          type="text">
+          type="text"
+          @change="check"
+          >
         </el-input>
         <el-input 
           class="input"
@@ -30,6 +32,9 @@ export default {
       account: '',
       password: ''
     };
+  },
+  methods:{
+     
   }
 };
 </script>
@@ -39,7 +44,7 @@ export default {
      padding: 16px;
      .title{
         font-size: 28px;
-        color:#9fd98d;
+        color:#ee6666;
      }
      .input{
         margin: 12px 0;
