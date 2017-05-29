@@ -10,7 +10,7 @@ const UserModel = mongoose.model('User',userSchema);
 
 const $_signUp = async (username,password) =>{
     let condiction = {username,password};
-    let body = await UserModel.findOneAndUpdate(condiction,condiction,{
+    let body = await UserModel.findOneAndUpdate(condiction,{username,password},{
          upsert:true,
          new:true
     }).then(user=>{
@@ -28,19 +28,22 @@ const $_getUser = async (username,password) =>{
         message : 'The user name does not exist'
     };
     let body = await UserModel.findOne({username}).then(data=>{
-        if(!data){
-            return result
-        }else{
-            if(password = data.password){
-                return {success : true , message : 'Sign in suceesfully'};
-            }else{
-                return {success : false , message : 'Incorrect password'};
-            }
-        }
+        // if(!data){
+        //     return result
+        // }else{
+        //     if(password === data.password){
+        //         return {success : true ,
+        //                 message : 'Sign in suceesfully',
+        //                 username : data.username
+        //                };
+        //     }else{
+        //         return {success : false , message : 'Incorrect password'};
+        //     }
+        // }
+        return data;
     })
     return body
 }//Use a username and password to log in
-
 
 module.exports = {
     $_getUser,

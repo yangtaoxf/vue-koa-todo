@@ -8,6 +8,9 @@ import 'animate.css/animate.min.css'
 import VueRouter  from 'vue-router'
 import Login from './components/Login/Login'// 引入Login组件
 import TodoList from './components/Todo/TodoList'// 引入Login组件
+import Axios from 'axios';
+
+Vue.prototype.$http = Axios;
 
 Vue.config.productionTip = false
 
@@ -31,6 +34,23 @@ const router = new VueRouter({
     }
   ]
 })
+
+// router.beforeEach((to,from,next)=>{
+//   const token = sessionStorage.getItem('demo-token');
+//   if(to.path == '/'){ // 如果是跳转到登录页的
+//     if(token !== null){
+//       next('/todolist') // 如果有token就转向todolist不返回登录页
+//     }else{
+//       next(); // 否则跳转回登录页
+//     }
+//   }else{
+//     if(token !== null){
+//        next() // 如果有token就正常转向
+//     }else{
+//       next('/') // 否则跳转回登录页
+//     }
+//   }
+// })
 
 
 

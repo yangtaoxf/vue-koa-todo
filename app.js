@@ -12,10 +12,12 @@ const json = require('koa-json')();
 const bodyparser = require('koa-bodyparser');
 const auth = require('./server/routes/auth.js');
 const Koa = require('koa');
+const cors = require('kcors');
 const PORT = 7000;
 const app = new Koa();
 
 //-------------------------------------------------------------------------middleware
+app.use(cors());
 app.use(json);
 app.use(bodyparser());
 app.use(router.routes());

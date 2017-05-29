@@ -6,7 +6,7 @@
       <el-row>
         <el-input 
           class="input"
-          v-model="account" 
+          v-model="username" 
           placeholder="账号"
           type="text"
           >
@@ -28,13 +28,34 @@
 export default {
   data () {
     return {
-      account: '',
+      username: '',
       password: ''
     };
   },
   methods:{
     loginToDo () {
-        this.$router.push('/todolist')// 编程式路由，通过push方法，改变路由
+        let obj = {
+            username : this.username,
+            password : this.password
+        }
+        this.$http.post('/auth/user',obj)// 将信息发送给后端
+        .then((res)=>{// axios返回的数据都在res.data里
+            if(res.data.success){// 如果成功
+                sessionStorage.setItem('demo-token',res.data.token);
+                console.log(res.data.token)
+                this.$message({// 登录成功，显示提示语
+                    type: 'success',
+                    message: '登录成功！'
+                })
+                this.$router.push('/todolist') // 进入todolist页面，登录成功
+            }else{
+                this.$message.error(res.data.message);
+                sessionStorage.setItem('demo-token',null); // 将token清空
+            }
+        },(err)=>{
+            this.$message.error('请求错误！');
+            sessionStorage.setItem('demo-token',null); // 将token清空
+        })
     }
   }
 };

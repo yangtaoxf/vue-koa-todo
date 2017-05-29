@@ -14,7 +14,7 @@ const userSchema = new Schema({
     password : String,
     list:[listSchema]
 },{
-    _id:false, //===>_id为false 告诉mongoose
+    _id:false,
     strict: false
 })//User schema
 

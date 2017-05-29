@@ -47,10 +47,22 @@
 </template>
 
 <script>
+import jwtDecode from 'jwt-decode'
+
 export default {
+
+  created () {
+      const userInfo = this.getUserInfo();// 新增一个获取用户信息的方法
+      if(userInfo !== null){
+          this.name = userInfo.name;
+      }else{
+          this.name = '';
+      }
+  },
+
   data () {
     return {
-      name: 'Sheldon-Yee',
+      name: '',
       todos: '',
       activeName: 'first',
       list:[],
@@ -104,6 +116,15 @@ export default {
         type: 'info',
         message: '任务还原'
       })
+    },
+    getUserInfo () {
+        const token = sessionStorage.getItem('demo-token');
+        if(token !== null){
+            let decode = jwtDecode(token);
+            return decode;
+        }else{
+            return null;
+        }
     }
   }
 };
