@@ -9,7 +9,6 @@
           v-model="account" 
           placeholder="账号"
           type="text"
-          @change="check"
           >
         </el-input>
         <el-input 

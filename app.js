@@ -1,35 +1,45 @@
 /**
- * koa-server入口文件
+ * Main program input
  * @author：Sheldon-Yee
  */
 
-const Koa =  require('koa'),
-      koa = require('koa-router')(),
-      json = require('koa-json'),
-      logger = require('koa-logger'),//引入各种依赖
-      bodyparser = require('koa-bodyparser');
+const path = require('path');
+const fs = require('fs');
+const server = require('koa-static');//deal with static-resource of html css js or imgs
+const router = require('koa-router')();
+const logger = require('koa-logger');
+const json = require('koa-json')();
+const bodyparser = require('koa-bodyparser');
+const auth = require('./server/routes/auth.js');
+const Koa = require('koa');
+const PORT = 7000;
+const app = new Koa();
 
-const PORT = 8889,
-      app = new Koa();
-//--------------------------------------------------------------------中间件串联
-      app.use(bodyparser());
-      app.use(json());
-      app.use(logger());
+//-------------------------------------------------------------------------middleware
+app.use(json);
+app.use(bodyparser());
+app.use(router.routes());
+app.use(server(`${__dirname}/dist`));
+app.use(logger());
+//----------------------------------------------------------------------------
 
-      app.use(async(ctx,next)=>{
-          let start = new Date();
-          ctx.body = "Hello koa And vue"
-          await next();
-          let ms = new Date() - start;
-          console.log(this.method,this.url,ms);
-      })
 
-      app.on('error',(err,ctx)=>{
-        console.log('server error', err);
-      })
+//connect the mongoDB with mongoose 
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/todoDB');
+mongoose.connection.on('error',(err)=>{
+      console.log('error happen for db'); 
+}).once('open',()=>{
+      console.log('we are connect') 
+})
 
-      app.listen(PORT,() => {
-          console.log(`Koa is listening in ${PORT}`);
-      })
+router.use('/auth',auth.routes());
 
-      module.exports = app;
+app.on('error',(err)=>{
+      console.log(`sever error is ${err}`)
+})
+
+app.listen(PORT,()=>{
+      console.log(`Koa is listening in ${PORT}`);
+});
