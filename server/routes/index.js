@@ -1,4 +1,0 @@
-/**
- * @author : Sheldon-Yee
- */
-

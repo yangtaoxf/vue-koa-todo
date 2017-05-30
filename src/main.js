@@ -45,6 +45,7 @@ const router = new VueRouter({
 //     }
 //   }else{
 //     if(token !== null){
+//        Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer ' + token; // 全局设定header的token验证，注意Bearer后有个空格
 //        next() // 如果有token就正常转向
 //     }else{
 //       next('/') // 否则跳转回登录页

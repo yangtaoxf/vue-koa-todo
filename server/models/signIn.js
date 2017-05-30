@@ -1,6 +1,6 @@
 /**
  * @author : Sheldon-Yee
- * mongoDB database operations
+ * User mongoDB database operations
  */
 const {userSchema,listSchema} = require('../schema');
 const mongoose = require('mongoose');
@@ -23,26 +23,10 @@ const $_signUp = async (username,password) =>{
 }//register username
 
 const $_getUser = async (username,password) =>{
-    let result = {
-        success : false,
-        message : 'The user name does not exist'
-    };
-    let body = await UserModel.findOne({username}).then(data=>{
-        // if(!data){
-        //     return result
-        // }else{
-        //     if(password === data.password){
-        //         return {success : true ,
-        //                 message : 'Sign in suceesfully',
-        //                 username : data.username
-        //                };
-        //     }else{
-        //         return {success : false , message : 'Incorrect password'};
-        //     }
-        // }
+    let result = await UserModel.findOne({username,password}).then(data=>{
         return data;
     })
-    return body
+    return result
 }//Use a username and password to log in
 
 module.exports = {

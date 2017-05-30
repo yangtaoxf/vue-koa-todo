@@ -12,7 +12,7 @@ const listSchema = new Schema({
 const userSchema = new Schema({
     username : String,
     password : String,
-    list:[listSchema]
+    list:[ listSchema ]
 },{
     _id:false,
     strict: false
