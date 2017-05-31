@@ -94,13 +94,6 @@ export default {
         message: '任务完成'
       })
     },
-    // restore(index) {
-    //   this.$set(this.list[index],'status',false)
-    //   this.$message({
-    //     type: 'info',
-    //     message: '任务还原'
-    //   })
-    // },
     update (index) {
         this.$http.put(`/api/todolist/${this.name}/${this.list[index].content}/${this.list[index].status}`)
         .then(res=>{

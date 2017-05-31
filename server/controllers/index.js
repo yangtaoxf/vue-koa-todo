@@ -20,13 +20,13 @@ const getUserInfo  = async (ctx,next)=>{
             const token = jwt.sign(
                 userToken,
                 secret
-            );// 签发token
+            );// sign token
             ctx.body = {
                 success: true,
-                token: token, // 返回token
+                token: token, //  return token
                 username : userInfo.username
             }
-        }else{// 如果密码正确
+        }else{// if the password is correct
            ctx.body = {
                 success : false,// success标志位是方便前端判断返回是正确与否
                 message:'Incorrect password'
@@ -47,15 +47,15 @@ const signIn = async (ctx,next)=>{
     ctx.body = result
 }
 
-const getTodoList = async (ctx,next)=>{ // 获取某个用户的所有todolist
-    const {username} = ctx.params.user; // 获取url里传过来的参数里的username
+const getTodoList = async (ctx,next)=>{ // get user todolist 
+    const {username} = ctx.params.user; // get the params from url
     const result = await $_getTodolistByName(username);
     const list = result.data[0].list;
     ctx.body = list; // 将请求的结果放到response的body里返回
 }
 
-const createTodoList = async (ctx,next)=>{ // 给某个用户创建一条todolist
-     const data = ctx.request.body; // post请求，数据是在request.body里的
+const createTodoList = async (ctx,next)=>{ // create a todolist
+     const data = ctx.request.body; // post requrest，data in request.body
      const result = await $_createTodolist(data);
      ctx.body = {
          data:result,
