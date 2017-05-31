@@ -31,6 +31,8 @@ mongoDB：这个项目选取了mongoDB作为数据库，因为本人只会mongoD
 
 <h5>vue-router</h5>
 
+<h5>animate.css</h5>
+
 <h3>实现功能</h3>
 
 <h5> 1:JSON-Web-Token实现用户验证</h5> 
