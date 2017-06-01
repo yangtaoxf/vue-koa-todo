@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const koaRouter = require('koa-router');
-server = require('koa-static');
+const server = require('koa-static');
+const path = require('path');
 
 const PORT = 3030;
 

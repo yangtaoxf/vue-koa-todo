@@ -44,6 +44,7 @@ mongoDB：这个项目选取了mongoDB作为数据库，因为本人只会mongoD
 <h5>4.实现RESTful风格的api</h5>
 
 <h3>Build Setup</h3>
+
 ```
 #step1
 git clone git@github.com:PeterCheng1/vue-koa-todo.git
@@ -59,6 +60,7 @@ npm run koa
 
 #step5
 npm run dev
+
 ```
 
 <h3>遇到问题:</h3>
