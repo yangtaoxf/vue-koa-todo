@@ -12,8 +12,8 @@ const logger = require('koa-logger');
 const json = require('koa-json')();
 const bodyparser = require('koa-bodyparser');
 const historyApiFallback = require('koa-history-api-fallback');
-const auth = require('./server/routes/auth.js');
-const api = require('./server/routes/api.js')
+const auth = require('./routes/auth.js');
+const api = require('./routes/api.js')
 const Koa = require('koa');
 const cors = require('kcors');
 const PORT = 7000;
@@ -24,8 +24,8 @@ app.use(cors());
 app.use(json);
 app.use(bodyparser());
 app.use(router.routes());
-app.use(server(`${__dirname}/dist`));
 app.use(historyApiFallback()); // Join in this place ,Must be added to the static file before the static-serve,otherwist it will fail 
+app.use(server(`${__dirname}/../dist`));
 app.use(logger());
 //----------------------------------------------------------------------------
 
