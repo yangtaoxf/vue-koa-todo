@@ -11,7 +11,7 @@ mongoDB：这个项目选取了mongoDB作为数据库，因为本人只会mongoD
 
 <h3>效果图</h3>
 
-![效果图](./static/todo1.gif)
+![效果图](./static/koa1.gif)
 
 <h3>技术栈</h3>
 
