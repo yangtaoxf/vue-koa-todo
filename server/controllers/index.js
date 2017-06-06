@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');//json web token
 const getUserInfo  = async (ctx,next)=>{
     
     const { username , password } = ctx.request.body;
-    const userInfo  = await $_getUser(username , password);
+    const userInfo  = await $_getUser(username);
     if(userInfo !== null){// 如果查无此用户会返回null
         if(password === userInfo.password){
              const userToken = {
@@ -29,13 +29,13 @@ const getUserInfo  = async (ctx,next)=>{
         }else{// if the password is correct
            ctx.body = {
                 success : false,// success标志位是方便前端判断返回是正确与否
-                message:'Incorrect password'
+                message:'密码错误'
             }
         }
     }else{
         ctx.body = {
             success : false ,
-            message : 'The user name does not exist'
+            message : '用户名不存在'
         }
     }
 

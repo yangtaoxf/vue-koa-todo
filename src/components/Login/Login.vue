@@ -17,7 +17,7 @@
           placeholder="密码"
           type="password">
         </el-input>
-        <el-button type="primary" class="button"  @click="loginToDo">登录</el-button>
+        <el-button type="primary" class="button"  @click="loginToDo" @keyup.enter.native="loginToDo">登录</el-button>
       </el-row>
     </el-col>
   </el-row>

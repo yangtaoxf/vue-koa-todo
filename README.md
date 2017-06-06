@@ -11,11 +11,11 @@ mongoDB：这个项目选取了mongoDB作为数据库，因为本人只会mongoD
 
 <h3>效果图</h3>
 
-![效果图](./static/todo3.gif)
+![效果图](./static/todo1.gif)
 
 <h3>技术栈</h3>
 
-<h5>Webpack</h5>
+<h5>Webpack2.0</h5>
 
 <h5>Koa2.0</h5>
 
@@ -35,9 +35,9 @@ mongoDB：这个项目选取了mongoDB作为数据库，因为本人只会mongoD
 
 <h3>实现功能</h3>
 
-<h5> 1:JSON-Web-Token实现用户验证</h5> 
+<h5>1:JSON-Web-Token实现用户验证</h5> 
 
-<h5>2.实现注册登录功能</h5>
+<h5>2.实现注册登录功能(不过登录功能没有开放出来，要通过postman发送测试请求进行注册)</h5>
 
 <h5>3.实现对todolist的CRUD操作</h5>
 

@@ -22,8 +22,8 @@ const $_signUp = async (username,password) =>{
     return body;
 }//register username
 
-const $_getUser = async (username,password) =>{
-    let result = await UserModel.findOne({username,password}).then(data=>{
+const $_getUser = async (username) =>{
+    let result = await UserModel.findOne({username}).then(data=>{
         return data;
     })
     return result
